@@ -28,6 +28,9 @@ let buttonEqual = document.querySelector("#equal");
 let buttonDot = document.querySelector("#dot");
 
 buttonBackspace.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(secondNumber !== ""){
         secondNumber = secondNumber.slice(0,-1);
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -47,6 +50,9 @@ buttonReset.addEventListener("click", function(){
 });
 
 buttonPlus.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if (operator !== ""){
         evaluate();
     }
@@ -56,6 +62,9 @@ buttonPlus.addEventListener("click", function(){
 });
 
 buttonMinus.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if (operator !== ""){
         evaluate();
     }
@@ -65,6 +74,9 @@ buttonMinus.addEventListener("click", function(){
 });
 
 buttonMultiply.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if (operator !== ""){
         evaluate();
     }
@@ -74,6 +86,9 @@ buttonMultiply.addEventListener("click", function(){
 });
 
 buttonDivide.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if (operator !== ""){
         evaluate();
     }
@@ -83,6 +98,9 @@ buttonDivide.addEventListener("click", function(){
 });
 
 buttonDot.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber(".");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -92,7 +110,23 @@ buttonDot.addEventListener("click", function(){
     }
 });
 
+buttonZero.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("0");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("0");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
 buttonOne.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("1");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -103,6 +137,9 @@ buttonOne.addEventListener("click", function(){
 });
 
 buttonTwo.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("2");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -113,6 +150,9 @@ buttonTwo.addEventListener("click", function(){
 });
 
 buttonThree.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("3");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -123,6 +163,9 @@ buttonThree.addEventListener("click", function(){
 });
 
 buttonFour.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("4");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -133,6 +176,9 @@ buttonFour.addEventListener("click", function(){
 });
 
 buttonFive.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("5");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -143,6 +189,9 @@ buttonFive.addEventListener("click", function(){
 });
 
 buttonSix.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("6");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -153,6 +202,9 @@ buttonSix.addEventListener("click", function(){
 });
 
 buttonSeven.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("7");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -163,6 +215,9 @@ buttonSeven.addEventListener("click", function(){
 });
 
 buttonEight.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("8");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -173,6 +228,9 @@ buttonEight.addEventListener("click", function(){
 });
 
 buttonNine.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("9");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -183,6 +241,9 @@ buttonNine.addEventListener("click", function(){
 });
 
 buttonEqual.addEventListener("click", function(){
+    if (solution === "ERROR"){
+        return;
+    }
     if (operator === "" || firstNumber === "" || secondNumber === "" || equal == true){
         return;
     }
@@ -257,6 +318,9 @@ function multiply(number1, number2){
 }
 
 function divide(number1, number2){
+    if (secondNumber === "0"){
+        return solution = "ERROR";
+    }
     let num = Number(number1) / Number(number2);
     return solution = Math.round(num * 1e8) / 1e8;
 }
