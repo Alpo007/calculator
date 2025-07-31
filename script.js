@@ -27,6 +27,21 @@ let buttonBackspace = document.querySelector("#backspace");
 let buttonEqual = document.querySelector("#equal");
 let buttonDot = document.querySelector("#dot");
 
+buttonBackspace.addEventListener("click", function(){
+    if(secondNumber !== ""){
+        secondNumber = secondNumber.slice(0,-1);
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    }else if (secondNumber === ""){
+        if (operator !== ""){
+        operator = "";
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+        }else if (secondNumber === "" && firstNumber !== ""){
+        firstNumber = firstNumber.slice(0,-1);
+        displayTextOne.textContent = firstNumber;
+        }
+    }
+});
+
 buttonReset.addEventListener("click", function(){
     reset();
 });
@@ -177,6 +192,7 @@ buttonEqual.addEventListener("click", function(){
     firstNumber = solution;
     displayTextOne.textContent = firstNumber;
     equal = true;
+    operator = "";
 });
 
 function reset(){
