@@ -2,6 +2,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let solution;
+let equal = false;
 
 let displayTextOne = document.querySelector("#displayTextOne");
 let displayTextTwo = document.querySelector("#displayTextTwo");
@@ -28,30 +29,37 @@ let buttonCommaRight = document.querySelector("#commaRight");
 let buttonEqual = document.querySelector("#equal");
 
 buttonReset.addEventListener("click", function(){
-    displayTextOne.textContent = "";
-    displayTextTwo.textContent = "";
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
-    solution = undefined;
+    reset();
 });
 
 buttonPlus.addEventListener("click", function(){
+    if (firstNumber === ""){
+        return;
+    }
     operator = "+";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonMinus.addEventListener("click", function(){
+    if (firstNumber === ""){
+        return;
+    }
     operator = "-";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonMultiply.addEventListener("click", function(){
+    if (firstNumber === ""){
+        return;
+    }
     operator = "x";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonDivide.addEventListener("click", function(){
+    if (firstNumber === ""){
+        return;
+    }
     operator = "÷";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
@@ -77,6 +85,9 @@ buttonCommaRight.addEventListener("click", function(){
 });
 
 buttonOne.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("1");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -87,6 +98,9 @@ buttonOne.addEventListener("click", function(){
 });
 
 buttonTwo.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("2");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -97,6 +111,9 @@ buttonTwo.addEventListener("click", function(){
 });
 
 buttonThree.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("3");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -107,6 +124,9 @@ buttonThree.addEventListener("click", function(){
 });
 
 buttonFour.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("4");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -117,6 +137,9 @@ buttonFour.addEventListener("click", function(){
 });
 
 buttonFive.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("5");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -127,6 +150,9 @@ buttonFive.addEventListener("click", function(){
 });
 
 buttonSix.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("6");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -137,6 +163,9 @@ buttonSix.addEventListener("click", function(){
 });
 
 buttonSeven.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("7");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -147,6 +176,9 @@ buttonSeven.addEventListener("click", function(){
 });
 
 buttonEight.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("8");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -157,6 +189,9 @@ buttonEight.addEventListener("click", function(){
 });
 
 buttonNine.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
     if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
         addToSecondNumber("9");
         displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
@@ -169,7 +204,18 @@ buttonNine.addEventListener("click", function(){
 buttonEqual.addEventListener("click", function(){
     evaluate();
     displayTextTwo.textContent = solution;
+    equal = true;
 });
+
+function reset(){
+    displayTextOne.textContent = "";
+    displayTextTwo.textContent = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+    solution = undefined;
+    equal = false;
+}
 
 function evaluate(){
     if (operator === "+"){
