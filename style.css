@@ -11,13 +11,46 @@ body{
     align-items: center;
 }
 
+.container{
+    border: solid black 4px;
+    background-color: #CCC;
+}
+
 .button{
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    border: solid black 2px;
+    background-color: white;
 }
 
 .rows{
     display: flex;
+}
+
+p{
+    margin: 2px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+#display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 4px;
+    font-size: 40px;
+    background-color: white;
+}
+
+#displayTextOne{
+    font-size: 15px;
 }
 
 button{
