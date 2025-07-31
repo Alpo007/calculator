@@ -25,6 +25,7 @@ let buttonDivide = document.querySelector("#divide");
 let buttonReset = document.querySelector("#reset");
 let buttonBackspace = document.querySelector("#backspace");
 let buttonEqual = document.querySelector("#equal");
+let buttonDot = document.querySelector("#dot");
 
 buttonReset.addEventListener("click", function(){
     reset();
@@ -60,6 +61,19 @@ buttonDivide.addEventListener("click", function(){
     }
     operator = "÷";
     displayTextOne.textContent = firstNumber + " " + operator;
+});
+
+buttonDot.addEventListener("click", function(){
+    if(equal === true){
+        reset();
+    }
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber(".");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber(".");
+        displayTextOne.textContent = firstNumber;
+    }
 });
 
 buttonOne.addEventListener("click", function(){
