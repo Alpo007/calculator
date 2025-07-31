@@ -32,32 +32,32 @@ buttonReset.addEventListener("click", function(){
 });
 
 buttonPlus.addEventListener("click", function(){
-    if (firstNumber === "" || operator !== ""){
-        return;
+    if (operator !== ""){
+        evaluate();
     }
     operator = "+";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonMinus.addEventListener("click", function(){
-    if (firstNumber === "" || operator !== ""){
-        return;
+    if (operator !== ""){
+        evaluate();
     }
     operator = "-";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonMultiply.addEventListener("click", function(){
-    if (firstNumber === "" || operator !== ""){
-        return;
+    if (operator !== ""){
+        evaluate();
     }
     operator = "x";
     displayTextOne.textContent = firstNumber + " " + operator;
 });
 
 buttonDivide.addEventListener("click", function(){
-    if (firstNumber === "" || operator !== ""){
-        return;
+    if (operator !== ""){
+        evaluate();
     }
     operator = "÷";
     displayTextOne.textContent = firstNumber + " " + operator;
@@ -199,7 +199,6 @@ buttonEqual.addEventListener("click", function(){
     }
 
     evaluate();
-    displayTextTwo.textContent = solution;
     equal = true;
 });
 
@@ -216,12 +215,28 @@ function reset(){
 function evaluate(){
     if (operator === "+"){
         solution = add(firstNumber, secondNumber);
+        displayTextTwo.textContent = solution;
+        firstNumber = solution;
+        displayTextOne.textContent = firstNumber;
+        secondNumber = "";
     } else if (operator === "-"){
         solution = subtract(firstNumber, secondNumber);
+        displayTextTwo.textContent = solution;
+        firstNumber = solution;
+        displayTextOne.textContent = firstNumber;
+        secondNumber = "";
     } else if (operator === "x"){
         solution = multiply(firstNumber, secondNumber);
+        displayTextTwo.textContent = solution;
+        firstNumber = solution;
+        displayTextOne.textContent = firstNumber;
+        secondNumber = "";
     } else if (operator === "÷"){
         solution = divide(firstNumber, secondNumber);
+        displayTextTwo.textContent = solution;
+        firstNumber = solution;
+        displayTextOne.textContent = firstNumber;
+        secondNumber = "";
     }
 }
 
