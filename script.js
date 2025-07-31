@@ -1,5 +1,5 @@
-let firstNumber;
-let secondNumber;
+let firstNumber = "";
+let secondNumber = "";
 let operator;
 
 let displayTextOne = document.querySelector("#displayTextOne");
@@ -18,16 +18,159 @@ let buttonNine = document.querySelector("#nine");
 
 let buttonPlus = document.querySelector("#plus");
 let buttonMinus = document.querySelector("#minus");
-let buttonMulitply = document.querySelector("#multiply");
-let buttonDivive = document.querySelector("#divide");
+let buttonMultiply = document.querySelector("#multiply");
+let buttonDivide = document.querySelector("#divide");
 let buttonReset = document.querySelector("#reset");
 let buttonBackspace = document.querySelector("#backspace");
 let buttonCommaLeft = document.querySelector("#commaLeft");
 let buttonCommaRight = document.querySelector("#commaRight");
 
 buttonReset.addEventListener("click", function(){
-
+    displayTextOne.textContent = "";
+    displayTextTwo.textContent = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
 });
+
+buttonPlus.addEventListener("click", function(){
+    operator = "+";
+    displayTextOne.textContent = firstNumber + " " + operator;
+});
+
+buttonMinus.addEventListener("click", function(){
+    operator = "-";
+    displayTextOne.textContent = firstNumber + " " + operator;
+});
+
+buttonMultiply.addEventListener("click", function(){
+    operator = "x";
+    displayTextOne.textContent = firstNumber + " " + operator;
+});
+
+buttonDivide.addEventListener("click", function(){
+    operator = "÷";
+    displayTextOne.textContent = firstNumber + " " + operator;
+});
+
+buttonCommaLeft.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("(");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("(");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonCommaRight.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber(")");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber(")");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonOne.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("1");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("1");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonTwo.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("2");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("2");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonThree.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("3");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("3");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonFour.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("4");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("4");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonFive.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("5");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("5");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonSix.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("6");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("6");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonSeven.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("7");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("7");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonEight.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("8");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("8");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+buttonNine.addEventListener("click", function(){
+    if(operator === "+" || operator === "-" || operator === "x" || operator === "÷"){
+        addToSecondNumber("9");
+        displayTextOne.textContent = firstNumber + " " + operator + " " + secondNumber;
+    } else{
+        addToFirstNumber("9");
+        displayTextOne.textContent = firstNumber;
+    }
+});
+
+
+function addToSecondNumber(number){
+    secondNumber = secondNumber + number;
+}
+
+function addToFirstNumber(number){
+    firstNumber = firstNumber + number;
+}
 
 function add(number1, number2){
     return number1 + number2;
@@ -58,5 +201,3 @@ function operate(number1, operator, number2){
         return "ERROR";
     }
 }
-
-console.log(operate(4,4));
