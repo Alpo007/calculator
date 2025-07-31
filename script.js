@@ -404,3 +404,47 @@ function operate(number1, operator, number2){
         return divide(number1, number2);
     }
 }
+
+//keyboard support
+
+document.addEventListener("keydown", function(key){
+    key = key.key;
+    console.log(key);
+    if (key === "1"){
+        buttonOne.click();
+    } else if (key === "2"){
+        buttonTwo.click();
+    } else if (key === "3"){
+        buttonThree.click();
+    } else if (key === "4"){
+        buttonFour.click();
+    } else if (key === "5"){
+        buttonFive.click();
+    } else if (key === "6"){
+        buttonSix.click();
+    } else if (key === "7"){
+        buttonSeven.click();
+    } else if (key === "8"){
+        buttonEight.click();
+    } else if (key === "9"){
+        buttonNine.click();
+    } else if (key === "." || key === ","){
+        buttonDot.click();
+    } else if (key === "+"){
+        buttonPlus.click();
+    } else if (key === "-"){
+        buttonMinus.click();
+    } else if (key === "x" || key === "X" || key === "*"){
+        buttonMultiply.click();
+    } else if (key === "/"){
+        buttonDivide.click();
+    } else if (key === "Backspace"){
+        buttonBackspace.click();
+    } else if (key === "Escape"){
+        buttonReset.click();
+    } else if (key === "0"){
+        buttonZero.click();
+    } else if (key === "Enter" || key === "="){
+        buttonEqual.click();
+    }
+})
