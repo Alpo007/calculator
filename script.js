@@ -180,6 +180,10 @@ buttonNine.addEventListener("click", function(){
 });
 
 buttonEqual.addEventListener("click", function(){
+    if (operator === "" || firstNumber === "" || secondNumber === ""){
+        return;
+    }
+
     evaluate();
     displayTextTwo.textContent = solution;
     equal = true;
@@ -204,8 +208,6 @@ function evaluate(){
         solution = multiply(firstNumber, secondNumber);
     } else if (operator === "÷"){
         solution = divide(firstNumber, secondNumber);
-    } else {
-        solution = "ERROR";
     }
 }
 
@@ -246,7 +248,5 @@ function operate(number1, operator, number2){
         return multiply(number1, number2);
     } else if (operator === "%"){
         return divide(number1, number2);
-    } else {
-        return "ERROR";
     }
 }
