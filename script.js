@@ -2,6 +2,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let solution;
+let equal = false;
 
 let displayTextOne = document.querySelector("#displayTextOne");
 let displayTextTwo = document.querySelector("#displayTextTwo");
@@ -36,6 +37,7 @@ buttonPlus.addEventListener("click", function(){
     }
     operator = "+";
     displayTextOne.textContent = firstNumber + " " + operator;
+    equal = false;
 });
 
 buttonMinus.addEventListener("click", function(){
@@ -44,6 +46,7 @@ buttonMinus.addEventListener("click", function(){
     }
     operator = "-";
     displayTextOne.textContent = firstNumber + " " + operator;
+    equal = false;
 });
 
 buttonMultiply.addEventListener("click", function(){
@@ -52,6 +55,7 @@ buttonMultiply.addEventListener("click", function(){
     }
     operator = "x";
     displayTextOne.textContent = firstNumber + " " + operator;
+    equal = false;
 });
 
 buttonDivide.addEventListener("click", function(){
@@ -60,6 +64,7 @@ buttonDivide.addEventListener("click", function(){
     }
     operator = "÷";
     displayTextOne.textContent = firstNumber + " " + operator;
+    equal = false;
 });
 
 buttonDot.addEventListener("click", function(){
@@ -163,13 +168,15 @@ buttonNine.addEventListener("click", function(){
 });
 
 buttonEqual.addEventListener("click", function(){
-    if (operator === "" || firstNumber === "" || secondNumber === ""){
+    if (operator === "" || firstNumber === "" || secondNumber === "" || equal == true){
         return;
     }
 
     evaluate();
+
     firstNumber = solution;
     displayTextOne.textContent = firstNumber;
+    equal = true;
 });
 
 function reset(){
