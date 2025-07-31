@@ -53,7 +53,7 @@ buttonPlus.addEventListener("click", function(){
     if (solution === "ERROR"){
         return;
     }
-    if (operator !== ""){
+    if (operator !== "" && secondNumber !== ""){
         evaluate();
     }
     operator = "+";
@@ -65,7 +65,7 @@ buttonMinus.addEventListener("click", function(){
     if (solution === "ERROR"){
         return;
     }
-    if (operator !== ""){
+    if (operator !== "" && secondNumber !== ""){
         evaluate();
     }
     operator = "-";
@@ -77,7 +77,7 @@ buttonMultiply.addEventListener("click", function(){
     if (solution === "ERROR"){
         return;
     }
-    if (operator !== ""){
+    if (operator !== "" && secondNumber !== ""){
         evaluate();
     }
     operator = "x";
@@ -89,7 +89,7 @@ buttonDivide.addEventListener("click", function(){
     if (solution === "ERROR"){
         return;
     }
-    if (operator !== ""){
+    if (operator !== "" && secondNumber !== ""){
         evaluate();
     }
     operator = "÷";
