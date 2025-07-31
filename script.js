@@ -1,6 +1,7 @@
 let firstNumber = "";
 let secondNumber = "";
-let operator;
+let operator = "";
+let solution;
 
 let displayTextOne = document.querySelector("#displayTextOne");
 let displayTextTwo = document.querySelector("#displayTextTwo");
@@ -24,6 +25,7 @@ let buttonReset = document.querySelector("#reset");
 let buttonBackspace = document.querySelector("#backspace");
 let buttonCommaLeft = document.querySelector("#commaLeft");
 let buttonCommaRight = document.querySelector("#commaRight");
+let buttonEqual = document.querySelector("#equal");
 
 buttonReset.addEventListener("click", function(){
     displayTextOne.textContent = "";
@@ -31,6 +33,7 @@ buttonReset.addEventListener("click", function(){
     firstNumber = "";
     secondNumber = "";
     operator = "";
+    solution = undefined;
 });
 
 buttonPlus.addEventListener("click", function(){
@@ -163,6 +166,24 @@ buttonNine.addEventListener("click", function(){
     }
 });
 
+buttonEqual.addEventListener("click", function(){
+    evaluate();
+    displayTextTwo.textContent = solution;
+});
+
+function evaluate(){
+    if (operator === "+"){
+        solution = add(firstNumber, secondNumber);
+    } else if (operator === "-"){
+        solution = subtract(firstNumber, secondNumber);
+    } else if (operator === "x"){
+        solution = multiply(firstNumber, secondNumber);
+    } else if (operater === "÷"){
+        solution = divide(firstNumber, secondNumber);
+    } else {
+        solution = "ERROR";
+    }
+}
 
 function addToSecondNumber(number){
     secondNumber = secondNumber + number;
@@ -173,19 +194,19 @@ function addToFirstNumber(number){
 }
 
 function add(number1, number2){
-    return number1 + number2;
+    return Number(number1) + Number(number2);
 }
 
 function subtract(number1, number2){
-    return number1 - number2;
+    return Number(number1) - Number(number2);
 }
 
 function multiply(number1, number2){
-    return number1 * number2;
+    return Number(number1) * Number(number2);
 }
 
 function divide(number1, number2){
-    return number1 / number2;
+    return Number(number1) / Number(number2);
 }
 
 function operate(number1, operator, number2){
